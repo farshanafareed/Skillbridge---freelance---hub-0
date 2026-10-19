@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#7048df">
+
+    <title>SkillBridge | Student Freelancing Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="#home" class="logo">✦ SkillBridge</a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#login" id="loginNav">Login</a>
+        <a href="#dashboard" id="dashboardNav" hidden>Dashboard</a>
+    </nav>
+
+    <a href="#signup" class="signup-btn" id="getStartedBtn">
+        Get Started
+    </a>
+
+    <button id="logoutBtn" type="button" hidden>
+        Logout
+    </button>
+</header>
+
+
+<main>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <span class="badge">STUDENT FREELANCING PLATFORM</span>
+
+            <h1>Turn Your Skills<br>Into Real Opportunities</h1>
+
+            <p>
+                Discover exciting projects, gain practical experience,
+                build your portfolio, and grow your career with SkillBridge.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="primary-btn">
+                    Explore Projects →
+                </a>
+
+                <a href="#how-it-works" class="secondary-btn">
+                    Learn More
+                </a>
+            </div>
+
+            <div class="highlights">
+                <div>
+                    <h3>Learn</h3>
+                    <p>Develop your skills</p>
+                </div>
+
+                <div>
+                    <h3>Create</h3>
+                    <p>Build real projects</p>
+                </div>
+
+                <div>
+                    <h3>Grow</h3>
+                    <p>Gain experience</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-icon">✦</div>
+
+            <h2>Your Next Opportunity</h2>
+
+            <p>Find projects that match your skills.</p>
+
+            <div class="skill-tag">💻 Web Development</div>
+            <div class="skill-tag">🎨 UI/UX Design</div>
+            <div class="skill-tag">✍️ Content Writing</div>
+            <div class="skill-tag">📊 Data Science</div>
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+
+        <div class="project-search">
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search projects or skills..."
+                aria-label="Search projects"
+            >
+
+            <button id="searchBtn" type="button">Search</button>
+        </div>
+
+        <div class="section-heading">
+            <span class="badge">EXPLORE OPPORTUNITIES</span>
+
+            <h2>Find Projects That Inspire You</h2>
+
+            <p>
+                Explore opportunities to practise your skills
+                and build your portfolio.
+            </p>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+
+            <article class="project-card">
+                <div class="project-icon">💻</div>
+
+                <span class="category">Web Development</span>
+
+                <h3>Design a Landing Page</h3>
+
+                <p>
+                    Create a modern, responsive landing page
+                    for a startup.
+                </p>
+
+                <div class="project-info">
+                    <p><strong>Budget:</strong> ₹2,000</p>
+                    <p><strong>Applicants:</strong> 5 students</p>
+                    <p><strong>Project Type:</strong> Remote</p>
+                </div>
+
+                <div class="project-footer">
+                    <span>HTML · CSS · JavaScript</span>
+
+                    <button class="view-btn"
+                        data-project="landing"
+                        type="button">
+                        View Project
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="project-card">
+                <div class="project-icon">🎨</div>
+
+                <span class="category">UI/UX Design</span>
+
+                <h3>Mobile App Interface</h3>
+
+                <p>
+                    Create a simple and user-friendly
+                    mobile application design.
+                </p>
+
+                <div class="project-info">
+                    <p><strong>Budget:</strong> ₹1,500</p>
+                    <p><strong>Applicants:</strong> 3 students</p>
+                    <p><strong>Project Type:</strong> Remote</p>
+                </div>
+
+                <div class="project-footer">
+                    <span>UI/UX · Figma</span>
+
+                    <button class="view-btn"
+                        data-project="mobile"
+                        type="button">
+                        View Project
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="project-card">
+                <div class="project-icon">📊</div>
+
+                <span class="category">Data Science</span>
+
+                <h3>Student Data Analysis</h3>
+
+                <p>
+                    Analyse sample student data and present
+                    useful insights using charts.
+                </p>
+
+                <div class="project-info">
+                    <p><strong>Budget:</strong> ₹2,500</p>
+                    <p><strong>Applicants:</strong> 2 students</p>
+                    <p><strong>Project Type:</strong> Remote</p>
+                </div>
+
+                <div class="project-footer">
+                    <span>Python · Data Analysis</span>
+
+                    <button class="view-btn"
+                        data-project="data"
+                        type="button">
+                        View Project
+                    </button>
+                </div>
+            </article>
+
+        </div>
+
+        <p id="noProjects" hidden>
+            No matching projects found. Try another keyword.
+        </p>
+
+    </section>
+
+
+    <!-- PROJECT DETAILS -->
+    <section class="projects" id="projectDetails" hidden>
+        <div class="section-heading">
+            <span class="badge">PROJECT INFORMATION</span>
+            <h2 id="detailTitle">Project Details</h2>
+            <p id="detailDescription"></p>
+        </div>
+
+        <div class="project-card">
+            <p><strong>Category:</strong> <span id="detailCategory"></span></p>
+            <p><strong>Skills:</strong> <span id="detailSkills"></span></p>
+            <p><strong>Budget:</strong> <span id="detailBudget"></span></p>
+            <br>
+
+            <button class="primary-btn" id="applyBtn" type="button">
+                Apply for Project
+            </button>
+
+            <button class="secondary-btn" id="backProjectsBtn" type="button">
+                Back to Projects
+            </button>
+        </div>
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how-it-works">
+
+        <div class="section-heading">
+            <span class="badge">YOUR JOURNEY STARTS HERE</span>
+
+            <h2>How SkillBridge Works</h2>
+
+            <p>Get started in four simple steps.</p>
+        </div>
+
+        <div class="steps">
+
+            <div class="step-card">
+                <span>01</span>
+                <h3>Create an Account</h3>
+                <p>Set up your student profile.</p>
+            </div>
+
+            <div class="step-card">
+                <span>02</span>
+                <h3>Explore Projects</h3>
+                <p>Find opportunities that interest you.</p>
+            </div>
+
+            <div class="step-card">
+                <span>03</span>
+                <h3>Submit an Application</h3>
+                <p>Apply for projects that match your skills.</p>
+            </div>
+
+            <div class="step-card">
+                <span>04</span>
+                <h3>Build Your Portfolio</h3>
+                <p>Learn, practise, and grow professionally.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- LOGIN -->
+    <section class="projects" id="login">
+        <div class="section-heading">
+            <span class="badge">WELCOME BACK</span>
+            <h2>Login to SkillBridge</h2>
+            <p>Enter the email and password you registered with.</p>
+        </div>
+
+        <div class="project-card auth-card">
+            <form id="loginForm">
+                <label for="loginEmail">Email address</label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="loginPassword">Password</label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit" class="primary-btn">
+                    Login
+                </button>
+
+                <p id="loginMessage" role="status"></p>
+            </form>
+
+            <p>New to SkillBridge?</p>
+
+            <button type="button" class="secondary-btn" id="goSignupBtn">
+                Create an Account
+            </button>
+        </div>
+    </section>
+
+
+    <!-- REGISTRATION -->
+    <section class="projects" id="signup">
+        <div class="section-heading">
+            <span class="badge">JOIN SKILLBRIDGE</span>
+            <h2>Create Your Account</h2>
+            <p>Start exploring student project opportunities.</p>
+        </div>
+
+        <div class="project-card auth-card">
+            <form id="signupForm">
+                <label for="signupName">Full name</label>
+
+                <input
+                    type="text"
+                    id="signupName"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                >
+
+                <label for="signupEmail">Email address</label>
+
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="signupPassword">Create password</label>
+
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="At least 6 characters"
+                    minlength="6"
+                    autocomplete="new-password"
+                    required
+                >
+
+                <button type="submit" class="primary-btn">
+                    Register
+                </button>
+
+                <p id="signupMessage" role="status"></p>
+            </form>
+
+            <p>Already registered?</p>
+
+            <button type="button" class="secondary-btn" id="goLoginBtn">
+                Login
+            </button>
+        </div>
+    </section>
+
+
+    <!-- STUDENT DASHBOARD -->
+    <section class="projects" id="dashboard" hidden>
+        <div class="section-heading">
+            <span class="badge">STUDENT WORKSPACE</span>
+
+            <h2>My Dashboard</h2>
+
+            <p>Welcome, <strong id="welcomeName">Student</strong>!</p>
+        </div>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <div class="project-icon">📄</div>
+                <h3>Total Applications</h3>
+                <p id="totalApplications">0</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">⏳</div>
+                <h3>Pending Applications</h3>
+                <p id="pendingApplications">0</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">✅</div>
+                <h3>Accepted Applications</h3>
+                <p id="acceptedApplications">0</p>
+            </div>
+
+        </div>
+
+        <br>
+
+        <h2>My Applications</h2>
+
+        <div id="applicationList">
+            <p>You haven't applied for any projects yet.</p>
+        </div>
+
+        <br>
+
+        <button class="primary-btn" id="browseProjectsBtn" type="button">
+            Browse Projects
+        </button>
+    </section>
+
+</main>
+
+
+<footer>
+    <a href="#home" class="logo">✦ SkillBridge</a>
+
+    <p>Connecting student skills with project opportunities.</p>
+
+    <p class="copyright">
+        © 2026 SkillBridge. College project demonstration.
+    </p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
