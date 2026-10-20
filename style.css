@@ -418,3 +418,53 @@ button {
 /* HOW IT WORKS */
 .how-it-works {
     padding:
+       /* =====================================
+   PROJECT CATEGORY FILTERS
+   ===================================== */
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: -30px auto 40px;
+}
+
+.filter-btn {
+    padding: 10px 17px;
+    border: 1px solid #e2daf7;
+    border-radius: 25px;
+    background: #ffffff;
+    color: #5b5275;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #7048df;
+    border-color: #7048df;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.filter-btn:focus-visible {
+    outline: 3px solid #c7b8ff;
+    outline-offset: 3px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+    .category-filters {
+        gap: 8px;
+        margin-top: -25px;
+    }
+
+    .filter-btn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+   }
