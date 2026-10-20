@@ -32,7 +32,7 @@ const $ = (id) => document.getElementById(id);
 
 let selectedProject = null;
 
-
+let selectedCategory = "all";
 // -------------------------------------
 // LOCAL DEMONSTRATION STORAGE
 // -------------------------------------
@@ -245,11 +245,21 @@ function searchProjects() {
     let found = 0;
 
     cards.forEach(function(card) {
-        const matches = card.textContent.toLowerCase().includes(input);
+        const cardCategory = card.querySelector(".category");
 
-        card.hidden = !matches;
+        const matchesSearch =
+            card.textContent.toLowerCase().includes(input);
 
-        if (matches) {
+        const matchesCategory =
+            selectedCategory === "all" ||
+            (cardCategory &&
+             cardCategory.textContent.trim() === selectedCategory);
+
+        const showCard = matchesSearch && matchesCategory;
+
+        card.hidden = !showCard;
+
+        if (showCard) {
             found++;
         }
     });
@@ -258,11 +268,26 @@ function searchProjects() {
 
     if (found === 0) {
         $("noProjects").textContent =
-            "No matching projects found. Try another keyword.";
+            "No matching projects found. Try another category or keyword.";
     }
 }
 
 $("searchBtn").addEventListener("click", searchProjects);
+// PROJECT CATEGORY FILTERS
+
+document.querySelectorAll(".filter-btn").forEach(function(button) {
+    button.addEventListener("click", function() {
+        selectedCategory = button.dataset.category;
+
+        document.querySelectorAll(".filter-btn").forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        searchProjects();
+    });
+});
 
 $("searchInput").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
